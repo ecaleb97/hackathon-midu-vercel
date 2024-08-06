@@ -1,4 +1,4 @@
-# Caleb Zamalloa - Personal Website built using Next.js and Github API
+# Caleb Zamalloa - Recetas AI - Hackathon Midudev Vercel
 
 ![App Screenshot](./public/presentationImg.png)
 
