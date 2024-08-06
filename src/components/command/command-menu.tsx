@@ -41,8 +41,8 @@ export function CommandMenu() {
 		<>
 			<Button
 				onClick={() => setOpen((open) => !open)}
-				className="hidden text-sm text-muted-foreground bg-slate-50 hover:bg-gray-200
-        sm:flex gap-6 px-2 py-1"
+				className="text-sm text-muted-foreground bg-slate-50 hover:bg-gray-200
+        flex gap-6 px-2 py-1"
 			>
 				Search ...{" "}
 				<kbd

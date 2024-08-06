@@ -32,7 +32,7 @@ export function Navbar() {
 
 export function ExplorerButton() {
 	return (
-		<Button className="rounded-full hidden md:flex items-center" asChild>
+		<Button className="rounded-full hidden sm:flex items-center" asChild>
 			<Link href={"/recetas/explorar"}>Explorar</Link>
 		</Button>
 	);

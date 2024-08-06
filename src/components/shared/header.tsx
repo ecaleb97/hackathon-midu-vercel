@@ -11,7 +11,7 @@ export function Header() {
 			<div className={`${montserrat.className}`}>
 				<Link href={"/"} className="flex gap-2 text-xl">
 					<Image src="/logo-hackathon.svg" alt="Logo" width={50} height={50} />
-					Recetas AI
+					<span className="hidden sm:block text-xl font-light">Recetas AI</span>
 				</Link>
 			</div>
 			<Navbar />
@@ -19,7 +19,7 @@ export function Header() {
 				<CommandMenu />
 				<ExplorerButton />
 			</div>
-			<MobileSidebar />
+			{/* <MobileSidebar /> */}
 		</header>
 	);
 }
