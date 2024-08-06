@@ -1,8 +1,13 @@
+"use client";
+
 import { Path } from "@/components/breadcrumb/path";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { MoveUpRight } from "lucide-react";
-import Link from "next/link";
+import { useState } from "react";
+import { experimental_useObject as useObject } from "ai/react";
+import { schema } from "@/app/api/recipe/country/route";
+import ReactMarkdown from "react-markdown";
+import { Fragment } from "react";
 
 const gastronomies = [
 	{
@@ -23,6 +28,18 @@ const gastronomies = [
 ];
 
 export default function RecipePage() {
+	const { object, submit } = useObject({
+		api: "/api/recipe/country",
+		schema: schema,
+	});
+
+	const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+
+	const handleClick = (countryLabel: string) => {
+		setSelectedCountry(countryLabel);
+		submit(`Mejores platos tipicos de la gastronomia ${countryLabel}`);
+	};
+
 	return (
 		<main className="max-w-6xl px-4 my-4 md:my-14 space-y-6 mx-auto">
 			<Path name={"Recetas"} />
@@ -31,17 +48,40 @@ export default function RecipePage() {
 				{gastronomies.map((gastronomie) => (
 					<Card
 						key={gastronomie.label}
-						className="flex items-center justify-between hover:shadow-sm 
+						className="flex flex-col items-start hover:shadow-sm 
 						transition cursor-pointer hover:scale-100 p-4"
 					>
 						<Button
-							asChild
+							onClick={() => handleClick(gastronomie.label)}
 							variant={"link"}
 							className="text-gray-900/90 hover:scale-105 hover:underline-offset-4"
 						>
-							<Link href={""}>{gastronomie.label}</Link>
+							{gastronomie.label}
 						</Button>
-						<MoveUpRight className="size-3" />
+						{selectedCountry === gastronomie.label && (
+							<div className="px-4 py-2">
+								{object?.notifications?.map((notification, index) => (
+									<Fragment key={index}>
+										<ReactMarkdown
+											components={{
+												pre: ({ node, ...props }) => (
+													<div className="overflow-auto w-full my-2">
+														<pre {...props} />
+													</div>
+												),
+												code: ({ node, ...props }) => <code {...props} />,
+												strong: ({ node, ...props }) => (
+													<strong className="font-medium text-sm" {...props} />
+												),
+											}}
+											className="text-sm overflow-hidden leading-7 font-light"
+										>
+											{notification?.message || ""}
+										</ReactMarkdown>
+									</Fragment>
+								))}
+							</div>
+						)}
 					</Card>
 				))}
 			</div>
