@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { inter } from "@/lib/fonts";
 import "./globals.css";
 import { Footer } from "@/components/footer/footer";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
 	title: "Recetas AI",
@@ -17,6 +18,7 @@ export default function RootLayout({
 		<html lang="es">
 			<body className={inter.className}>
 				{children}
+				<Toaster />
 				<Footer />
 			</body>
 		</html>
