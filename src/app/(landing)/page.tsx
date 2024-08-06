@@ -29,7 +29,7 @@ function LandingHero() {
 				</span>
 			</h1>
 			<h2 className="text-gray-600 sm:text-xl">
-				Recetas.ai te ayuda a encontrar las mejores recetas de todo el mundo
+				Recetas AI te ayuda a encontrar las mejores recetas de todo el mundo
 			</h2>
 			<Button className="rounded-full px-6" asChild>
 				<Link href={"/recipes"}>Explora gastronomías</Link>
