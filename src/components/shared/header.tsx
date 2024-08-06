@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Navbar, ExplorerButton } from "@/components/nav/navbar";
 import { MobileSidebar } from "@/components/nav/mobile-sidebar";
+import { CommandMenu } from "@/components/command/command-menu";
 
 export function Header() {
 	return (
@@ -14,7 +15,10 @@ export function Header() {
 				</Link>
 			</div>
 			<Navbar />
-			<ExplorerButton />
+			<div className="flex items-center gap-4">
+				<CommandMenu />
+				<ExplorerButton />
+			</div>
 			<MobileSidebar />
 		</header>
 	);

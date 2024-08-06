@@ -10,7 +10,7 @@ export function Navbar() {
 	const pathname = usePathname();
 	return (
 		<ul
-			className="hidden md:flex items-center gap-6 bg-[#FBFBFB] 
+			className="hidden lg:flex items-center gap-6 bg-[#FBFBFB] 
 			px-5 py-3 rounded-full shadow-sm border border-gray-200"
 		>
 			{items.map((item) => (
