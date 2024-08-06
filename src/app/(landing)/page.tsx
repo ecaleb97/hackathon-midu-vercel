@@ -1,5 +1,6 @@
 "use client";
 
+import { MarqueeFoodImages } from "@/components/shared/food-images";
 import { Button } from "@/components/ui/button";
 import { montserrat } from "@/lib/fonts";
 import Link from "next/link";
@@ -8,6 +9,7 @@ export default function LandingPage() {
 	return (
 		<main>
 			<LandingHero />
+			<LandingContent />
 		</main>
 	);
 }
@@ -34,4 +36,8 @@ function LandingHero() {
 			</Button>
 		</div>
 	);
+}
+
+function LandingContent() {
+	return <MarqueeFoodImages />;
 }

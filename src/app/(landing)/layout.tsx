@@ -8,11 +8,18 @@ import { montserrat } from "@/lib/fonts";
 
 export default function LandingLayout({ children }: ChildrenProps) {
 	return (
-		<div className="min-h-screen max-w-full bg-slate-100">
+		<div className="min-h-screen max-w-full">
 			<header className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-				<div className={`flex gap-2 text-xl ${montserrat.className}`}>
-					<Image src="/logo-hackathon.svg" alt="Logo" width={50} height={50} />
-					Recetas.AI
+				<div className={`${montserrat.className}`}>
+					<Link href={"/"} className="flex gap-2 text-xl">
+						<Image
+							src="/logo-hackathon.svg"
+							alt="Logo"
+							width={50}
+							height={50}
+						/>
+						Recetas.AI
+					</Link>
 				</div>
 				<Navbar />
 				<ExplorerButton />
