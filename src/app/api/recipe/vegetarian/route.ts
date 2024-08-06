@@ -7,15 +7,15 @@ export async function POST(req: Request) {
 		const { messages } = await req.json();
 
 		if (!messages) {
-			return new NextResponse("Bad Request: Messages is required", {
+			return new NextResponse("Bad Request: Input is required", {
 				status: 400,
 			});
 		}
 
 		const response = await streamText({
 			model: openai("gpt-4-turbo"),
-			system: `Eres un experto chef y nutricionista. Debes mostrar a tu cliente cómo 
-				hacer una receta saludable y deliciosa.`,
+			system: `Eres un experto chef y nutricionista vegetariano. Debes mostrar a tu cliente cómo 
+				hacer una receta saludable y deliciosa (importante, tiene que ser vegetariano).`,
 			messages,
 		});
 
