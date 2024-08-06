@@ -16,7 +16,7 @@ export const items = [
 		href: "/recetas/postres",
 	},
 	{
-		title: "Carnes",
+		title: "Animal",
 		href: "/recetas/carnes",
 	},
 ];
