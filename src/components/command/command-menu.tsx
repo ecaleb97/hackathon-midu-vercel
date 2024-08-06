@@ -44,7 +44,7 @@ export function CommandMenu() {
 				className="text-sm text-muted-foreground bg-slate-50 hover:bg-gray-200
         flex gap-6 px-2 py-1"
 			>
-				Search ...{" "}
+				Buscar ...{" "}
 				<kbd
 					className="pointer-events-none inline-flex h-5 select-none 
           text-gray-600 border-gray-400
