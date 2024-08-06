@@ -101,12 +101,6 @@ export default function SaladsPage() {
 					<Fragment key={index}>
 						<ReactMarkdown
 							components={{
-								pre: ({ node, ...props }) => (
-									<div className="overflow-auto w-full my-2">
-										<pre {...props} />
-									</div>
-								),
-								code: ({ node, ...props }) => <code {...props} />,
 								strong: ({ node, ...props }) => (
 									<strong className="font-medium text-sm" {...props} />
 								),
@@ -175,7 +169,7 @@ export default function SaladsPage() {
 								),
 							}}
 						>
-							{message.content || ""}
+							{message.content}
 						</ReactMarkdown>
 					))}
 				</div>
