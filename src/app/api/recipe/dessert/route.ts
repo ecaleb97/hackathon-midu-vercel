@@ -13,7 +13,7 @@ export async function POST(req: Request) {
 		}
 
 		const response = await streamText({
-			model: openai("gpt-4-turbo"),
+			model: openai("gpt-4o"),
 			system: `Eres un experto repostero. Debes mostrar a tu cliente cómo 
 				hacer el postre indicando los ingredientes y el paso a paso.`,
 			messages,
