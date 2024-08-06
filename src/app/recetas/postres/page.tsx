@@ -24,6 +24,12 @@ import strawberryDessert from "@/assets/images/postreFresa.webp";
 import postreVaso from "@/assets/images/postreVaso.webp";
 import tartaChocolate from "@/assets/images/tartaChocolate.webp";
 import postreKiwi from "@/assets/images/postreKiwi.webp";
+import { experimental_useObject as useObject } from "ai/react";
+import { notificationSchema } from "@/app/api/recipe/description/schema";
+import { Fragment } from "react";
+
+const placeholder =
+	"Hoy quiero sorprender a mi madre con un postre especial, ¿que me recomiendas?";
 
 const formSchema = z.object({
 	message: z.string().min(5, { message: "Input is required" }),
@@ -52,14 +58,15 @@ const images = [
 	},
 ];
 
-export default function RecipePage() {
+export default function DessertsPage() {
 	const router = useRouter();
-	const { messages, input, handleInputChange, handleSubmit, error } = useChat({
-		api: "/api/recipe/vegan",
-		onFinish: () => {
-			router.refresh();
-		},
-	});
+	const { messages, input, handleInputChange, handleSubmit, error, isLoading } =
+		useChat({
+			api: "/api/recipe/vegan",
+			onFinish: () => {
+				router.refresh();
+			},
+		});
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -73,10 +80,44 @@ export default function RecipePage() {
 		}
 	}, [error]);
 
+	const { object, submit } = useObject({
+		api: "/api/recipe/description",
+		schema: notificationSchema,
+	});
+
 	return (
 		<main className="max-w-6xl px-4 md:my-14 space-y-6 mx-auto">
 			<Path name="Postres" />
 			<CarouselImages images={images} />
+			<Button
+				variant={"outline"}
+				onClick={() => submit("Breve descripcion de los postres")}
+				disabled={isLoading}
+			>
+				Generar descripcion
+			</Button>
+			<div className="px-4 py-2">
+				{object?.notifications?.map((notification, index) => (
+					<Fragment key={index}>
+						<ReactMarkdown
+							components={{
+								pre: ({ node, ...props }) => (
+									<div className="overflow-auto w-full my-2">
+										<pre {...props} />
+									</div>
+								),
+								code: ({ node, ...props }) => <code {...props} />,
+								strong: ({ node, ...props }) => (
+									<strong className="font-medium text-sm" {...props} />
+								),
+							}}
+							className="text-sm overflow-hidden leading-7 font-light"
+						>
+							{notification?.message || ""}
+						</ReactMarkdown>
+					</Fragment>
+				))}
+			</div>
 			<div className="flex flex-col gap-4">
 				<Form {...form}>
 					<form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -87,17 +128,22 @@ export default function RecipePage() {
 								<FormItem>
 									<FormControl>
 										<Textarea
-											placeholder="Cheesecake de fresa"
+											placeholder={placeholder}
 											value={input}
 											onChange={handleInputChange}
 											required
+											disabled={isLoading}
 										/>
 									</FormControl>
 									<FormMessage />
 								</FormItem>
 							)}
 						/>
-						<Button type="submit" className="bg-[#FF9737] hover:bg-[#FFBC7E]">
+						<Button
+							disabled={isLoading}
+							type="submit"
+							className="bg-[#FF9737] hover:bg-[#FFBC7E]"
+						>
 							Generar receta
 						</Button>
 					</form>

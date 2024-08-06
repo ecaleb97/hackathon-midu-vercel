@@ -14,7 +14,7 @@ export async function POST(req: Request) {
 			model: openai("gpt-4-turbo"),
 			schema: notificationSchema,
 			prompt:
-				`Genera una detallada historia y lista al menos 5 platos tipicos con ingredientes y preparacion de: ` +
+				`Genera una breve descripcion de: ` +
 				context,
 		});
 

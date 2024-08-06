@@ -28,7 +28,7 @@ const gastronomies = [
 ];
 
 export default function RecipePage() {
-	const { object, submit } = useObject({
+	const { object, submit, isLoading } = useObject({
 		api: "/api/recipe/countries",
 		schema: notificationSchema,
 	});
@@ -54,6 +54,7 @@ export default function RecipePage() {
 						<Button
 							onClick={() => handleClick(gastronomie.label)}
 							variant={"link"}
+							disabled={isLoading}
 							className="text-gray-900/90 hover:scale-105 hover:underline-offset-4"
 						>
 							{gastronomie.label}
