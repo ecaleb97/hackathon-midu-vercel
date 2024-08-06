@@ -32,7 +32,7 @@ function LandingHero() {
 				Recetas AI te ayuda a encontrar las mejores recetas de todo el mundo
 			</h2>
 			<Button className="rounded-full px-6" asChild>
-				<Link href={"/recipes"}>Explora gastronomías</Link>
+				<Link href={"/recetas"}>Explora gastronomías</Link>
 			</Button>
 		</div>
 	);

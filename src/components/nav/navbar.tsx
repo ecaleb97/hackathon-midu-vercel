@@ -25,7 +25,7 @@ export function Navbar() {
 export function ExplorerButton() {
 	return (
 		<Button className="rounded-full hidden md:flex items-center" asChild>
-			<Link href={"/recipes"}>Explorar</Link>
+			<Link href={"/recetas"}>Explorar</Link>
 		</Button>
 	);
 }
