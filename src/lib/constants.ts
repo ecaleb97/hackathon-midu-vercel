@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export const items = [
 	{
 		title: "Vegetariano",
@@ -20,3 +22,12 @@ export const items = [
 		href: "/recetas/carnes",
 	},
 ];
+
+export interface CarouselProps {
+	images: Array<ImageProps>;
+}
+
+interface ImageProps {
+	src: StaticImageData;
+	alt: string;
+}

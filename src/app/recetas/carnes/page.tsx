@@ -46,7 +46,7 @@ export default function RecipePage() {
 
 	return (
 		<main className="max-w-6xl px-4 md:my-14 space-y-6 mx-auto">
-			<Path name="Proteína animal" />
+			<Path name="Carnes y pescados" />
 			<div className="flex flex-col gap-4">
 				<Form {...form}>
 					<form onSubmit={handleSubmit} className="flex flex-col gap-4">
