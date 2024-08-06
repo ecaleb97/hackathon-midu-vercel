@@ -94,7 +94,7 @@ export default function SaladsPage() {
 				onClick={() => submit("Breve descripcion de las ensaladas")}
 				disabled={isLoading}
 			>
-				Generar descripcion
+				Generar descripción
 			</Button>
 			<div className="px-4 py-2">
 				{object?.notifications?.map((notification, index) => (

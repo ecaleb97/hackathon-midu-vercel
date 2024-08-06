@@ -94,7 +94,7 @@ export default function VeganPage() {
 				onClick={() => submit("Breve descripcion de las comidas veganas")}
 				disabled={isLoading}
 			>
-				Generar descripcion
+				Generar descripción
 			</Button>
 			<div className="px-4 py-2">
 				{object?.notifications?.map((notification, index) => (

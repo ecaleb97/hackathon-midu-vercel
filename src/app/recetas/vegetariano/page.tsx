@@ -93,7 +93,7 @@ export default function VegetarianPage() {
 				onClick={() => submit("Breve descripcion de las comidas vegetarianas")}
 				disabled={isLoading}
 			>
-				Generar descripcion
+				Generar descripción
 			</Button>
 			<div className="px-4 py-2">
 				{object?.notifications?.map((notification, index) => (
