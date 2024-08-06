@@ -18,6 +18,35 @@ import {
 	FormItem,
 	FormMessage,
 } from "@/components/ui/form";
+import { CarouselImages } from "@/components/shared/carousel-images";
+import vegetarian from "@/assets/images/vegetarian.webp";
+import calabacin from "@/assets/images/calabacin.webp";
+import pizzaVegetariana from "@/assets/images/pizzaVegetariana.webp";
+import vegan from "@/assets/images/vegan.webp";
+import veganSalad from "@/assets/images/veganSalad.webp";
+
+const images = [
+	{
+		src: vegetarian,
+		alt: "Ensalada vegetariana",
+	},
+	{
+		src: calabacin,
+		alt: "Calabacin",
+	},
+	{
+		src: pizzaVegetariana,
+		alt: "Pizza vegetariana",
+	},
+	{
+		src: vegan,
+		alt: "Ensalada vegana",
+	},
+	{
+		src: veganSalad,
+		alt: "Ensalada vegana",
+	},
+];
 
 const formSchema = z.object({
 	message: z.string().min(5, { message: "Input is required" }),
@@ -47,6 +76,7 @@ export default function RecipePage() {
 	return (
 		<main className="max-w-6xl px-4 md:my-14 space-y-6 mx-auto">
 			<Path name="Vegetariano" />
+			<CarouselImages images={images} />
 			<div className="flex flex-col gap-4">
 				<Form {...form}>
 					<form onSubmit={handleSubmit} className="flex flex-col gap-4">
