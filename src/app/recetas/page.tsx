@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useState } from "react";
 import { experimental_useObject as useObject } from "ai/react";
-import { schema } from "@/app/api/recipe/country/route";
+import { notificationSchema } from "@/app/api/recipe/countries/schema";
 import ReactMarkdown from "react-markdown";
 import { Fragment } from "react";
 
@@ -29,8 +29,8 @@ const gastronomies = [
 
 export default function RecipePage() {
 	const { object, submit } = useObject({
-		api: "/api/recipe/country",
-		schema: schema,
+		api: "/api/recipe/countries",
+		schema: notificationSchema,
 	});
 
 	const [selectedCountry, setSelectedCountry] = useState<string | null>(null);

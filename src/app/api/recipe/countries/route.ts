@@ -24,23 +24,7 @@
 import { openai } from "@ai-sdk/openai";
 import { streamObject } from "ai";
 import { NextResponse } from "next/server";
-// import { notificationSchema } from "./schema";
-
-import { z } from "zod";
-
-// define a schema for the notifications
-export const schema = z.object({
-	notifications: z.array(
-		z.object({
-			name: z.string().describe("Nombre del pais"),
-			message: z
-				.string()
-				.describe(
-					"Mensaje de la receta. Usa emojis cuando sea necesario para mejorar la experiencia del usuario",
-				),
-		}),
-	),
-});
+import { notificationSchema } from "./schema";
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
@@ -51,7 +35,7 @@ export async function POST(req: Request) {
 
 		const result = await streamObject({
 			model: openai("gpt-4-turbo"),
-			schema: schema,
+			schema: notificationSchema,
 			prompt:
 				`Genera una detallada historia y lista al menos 5 platos tipicos con ingredientes y preparacion de: ` +
 				context,
