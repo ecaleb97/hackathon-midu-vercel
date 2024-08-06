@@ -19,7 +19,7 @@ export function Navbar() {
 						href={item.href}
 						className={cn(
 							"text-gray-900/60 hover:text-gray-800",
-							pathname === item.href ? "text-black": "text-gray-900/60",
+							pathname === item.href ? "text-black" : "text-gray-900/60",
 						)}
 					>
 						{item.title}

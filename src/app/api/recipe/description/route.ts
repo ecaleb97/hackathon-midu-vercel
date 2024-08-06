@@ -13,9 +13,7 @@ export async function POST(req: Request) {
 		const result = await streamObject({
 			model: openai("gpt-4-turbo"),
 			schema: notificationSchema,
-			prompt:
-				`Genera una breve descripcion de: ` +
-				context,
+			prompt: `Genera una breve descripcion de: ` + context,
 		});
 
 		return result.toTextStreamResponse();

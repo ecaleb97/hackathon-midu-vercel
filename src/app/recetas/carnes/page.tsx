@@ -51,7 +51,8 @@ const images = [
 	},
 ];
 
-const placeholder = "Hoy tengo una reunión con amigos y me gustaría preparar un asado argentino 🇦🇷 ¿me puedes ayudar?";
+const placeholder =
+	"Hoy tengo una reunión con amigos y me gustaría preparar un asado argentino 🇦🇷 ¿me puedes ayudar?";
 
 const formSchema = z.object({
 	message: z.string().min(5, { message: "Input is required" }),
@@ -59,12 +60,13 @@ const formSchema = z.object({
 
 export default function MeatPage() {
 	const router = useRouter();
-	const { messages, input, handleInputChange, handleSubmit, error, isLoading } = useChat({
-		api: "/api/recipe/meat",
-		onFinish: () => {
-			router.refresh();
-		},
-	});
+	const { messages, input, handleInputChange, handleSubmit, error, isLoading } =
+		useChat({
+			api: "/api/recipe/meat",
+			onFinish: () => {
+				router.refresh();
+			},
+		});
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -139,7 +141,11 @@ export default function MeatPage() {
 								</FormItem>
 							)}
 						/>
-						<Button disabled={isLoading} type="submit" className="bg-[#FF9737] hover:bg-[#FFBC7E]">
+						<Button
+							disabled={isLoading}
+							type="submit"
+							className="bg-[#FF9737] hover:bg-[#FFBC7E]"
+						>
 							Generar receta
 						</Button>
 					</form>

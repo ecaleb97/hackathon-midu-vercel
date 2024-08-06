@@ -28,7 +28,8 @@ import { experimental_useObject as useObject } from "ai/react";
 import { notificationSchema } from "@/app/api/recipe/description/schema";
 import { Fragment } from "react";
 
-const placeholder = "Hoy me gustaría comer una hamburguesa vegana, pero no se me ocurre ninguna receta, ¿me puedes ayudar?";
+const placeholder =
+	"Hoy me gustaría comer una hamburguesa vegana, pero no se me ocurre ninguna receta, ¿me puedes ayudar?";
 
 const images = [
 	{
@@ -59,12 +60,13 @@ const formSchema = z.object({
 
 export default function VeganPage() {
 	const router = useRouter();
-	const { messages, input, handleInputChange, handleSubmit, error, isLoading } = useChat({
-		api: "/api/recipe/vegan",
-		onFinish: () => {
-			router.refresh();
-		},
-	});
+	const { messages, input, handleInputChange, handleSubmit, error, isLoading } =
+		useChat({
+			api: "/api/recipe/vegan",
+			onFinish: () => {
+				router.refresh();
+			},
+		});
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -137,7 +139,11 @@ export default function VeganPage() {
 								</FormItem>
 							)}
 						/>
-						<Button disabled={isLoading} type="submit" className="bg-[#FF9737] hover:bg-[#FFBC7E]">
+						<Button
+							disabled={isLoading}
+							type="submit"
+							className="bg-[#FF9737] hover:bg-[#FFBC7E]"
+						>
 							Generar receta
 						</Button>
 					</form>

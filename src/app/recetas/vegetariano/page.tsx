@@ -59,12 +59,13 @@ const formSchema = z.object({
 
 export default function VegetarianPage() {
 	const router = useRouter();
-	const { messages, input, handleInputChange, handleSubmit, error, isLoading } = useChat({
-		api: "/api/recipe/vegetarian",
-		onFinish: () => {
-			router.refresh();
-		},
-	});
+	const { messages, input, handleInputChange, handleSubmit, error, isLoading } =
+		useChat({
+			api: "/api/recipe/vegetarian",
+			onFinish: () => {
+				router.refresh();
+			},
+		});
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -137,7 +138,11 @@ export default function VegetarianPage() {
 								</FormItem>
 							)}
 						/>
-						<Button disabled={isLoading} type="submit" className="bg-[#FF9737] hover:bg-[#FFBC7E]">
+						<Button
+							disabled={isLoading}
+							type="submit"
+							className="bg-[#FF9737] hover:bg-[#FFBC7E]"
+						>
 							Generar receta
 						</Button>
 					</form>
