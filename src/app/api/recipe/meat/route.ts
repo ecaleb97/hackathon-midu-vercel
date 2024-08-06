@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { streamText } from "ai";
 import { openai } from "@ai-sdk/openai";
 
-// export const maxDuration = 30;
+export const maxDuration = 50;
 
 export async function POST(req: Request) {
 	try {
@@ -18,7 +18,7 @@ export async function POST(req: Request) {
 			model: openai("gpt-4-turbo"),
 			system: `Eres un experto chef y nutricionista de recetas que contiene proteina animal 
 			ya sea carnes o pescados. Debes mostrar a tu cliente cómo prepararlo indicando ingredientes 
-			y el paso a paso.`,
+			y la preparación paso a paso.`,
 			messages,
 		});
 

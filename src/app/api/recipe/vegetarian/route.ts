@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { streamText } from "ai";
 import { openai } from "@ai-sdk/openai";
 
-// export const maxDuration = 30;
+export const maxDuration = 50;
 
 export async function POST(req: Request) {
 	try {
@@ -17,7 +17,7 @@ export async function POST(req: Request) {
 		const response = await streamText({
 			model: openai("gpt-4-turbo"),
 			system: `Eres un experto chef y nutricionista vegetariano. Debes mostrar a tu cliente cómo 
-				hacer una receta saludable y deliciosa (importante, tiene que ser vegetariano).`,
+				hacer una receta saludable y deliciosa. Tienes que mostrar los ingredientes y la preparación paso a paso (importante, tiene que ser vegetariano).`,
 			messages,
 		});
 
