@@ -18,6 +18,35 @@ import {
 	FormItem,
 	FormMessage,
 } from "@/components/ui/form";
+import paella from "@/assets/images/paella.webp";
+import sushi from "@/assets/images/sushi.webp";
+import salmon from "@/assets/images/salmon.webp";
+import cocido from "@/assets/images/cocido.webp";
+import pulpoGallega from "@/assets/images/pulpoGallega.webp";
+import { CarouselImages } from "@/components/shared/carousel-images";
+
+const images = [
+	{
+		src: paella,
+		alt: "Paella",
+	},
+	{
+		src: sushi,
+		alt: "Sushi",
+	},
+	{
+		src: salmon,
+		alt: "Salmon",
+	},
+	{
+		src: cocido,
+		alt: "Cocido Madrileño",
+	},
+	{
+		src: pulpoGallega,
+		alt: "Pulpo a la gallega",
+	},
+];
 
 const formSchema = z.object({
 	message: z.string().min(5, { message: "Input is required" }),
@@ -47,6 +76,7 @@ export default function RecipePage() {
 	return (
 		<main className="max-w-6xl px-4 md:my-14 space-y-6 mx-auto">
 			<Path name="Carnes y pescados" />
+			<CarouselImages images={images} />
 			<div className="flex flex-col gap-4">
 				<Form {...form}>
 					<form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -57,7 +87,7 @@ export default function RecipePage() {
 								<FormItem>
 									<FormControl>
 										<Textarea
-											placeholder="Cheesecake de fresa"
+											placeholder="Carnes y pescados"
 											value={input}
 											onChange={handleInputChange}
 											required

@@ -18,10 +18,39 @@ import {
 	FormItem,
 	FormMessage,
 } from "@/components/ui/form";
+import { CarouselImages } from "@/components/shared/carousel-images";
+import postre from "@/assets/images/postre.webp";
+import strawberryDessert from "@/assets/images/postreFresa.webp";
+import postreVaso from "@/assets/images/postreVaso.webp";
+import tartaChocolate from "@/assets/images/tartaChocolate.webp";
+import postreKiwi from "@/assets/images/postreKiwi.webp";
 
 const formSchema = z.object({
 	message: z.string().min(5, { message: "Input is required" }),
 });
+
+const images = [
+	{
+		src: postre,
+		alt: "Postre de maracuya",
+	},
+	{
+		src: strawberryDessert,
+		alt: "Cheesecake de fresa",
+	},
+	{
+		src: postreVaso,
+		alt: "Postre en vaso",
+	},
+	{
+		src: tartaChocolate,
+		alt: "Tarta de chocolate",
+	},
+	{
+		src: postreKiwi,
+		alt: "Postre Kiwi",
+	},
+];
 
 export default function RecipePage() {
 	const router = useRouter();
@@ -47,6 +76,7 @@ export default function RecipePage() {
 	return (
 		<main className="max-w-6xl px-4 md:my-14 space-y-6 mx-auto">
 			<Path name="Postres" />
+			<CarouselImages images={images} />
 			<div className="flex flex-col gap-4">
 				<Form {...form}>
 					<form onSubmit={handleSubmit} className="flex flex-col gap-4">
