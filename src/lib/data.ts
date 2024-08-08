@@ -28,28 +28,28 @@ export const suggestions = [
 
 export const commandLinks = [
 	{
-    name: 'Vegetariano',
-    icon: LeafyGreen,
-    hash: '/recetas/vegetariano',
-  },
-  {
-    name: 'Vegano',
-    icon: Carrot,
-    hash: '/recetas/vegano',
-  },
-  {
-    name: 'Ensaladas',
-    icon: Apple,
-    hash: '/recetas/ensaladas',
-  },
-  {
-    name: 'Postres',
-    icon: Dessert,
-    hash: '/recetas/postres',
-  },
-  {
-    name: 'Carnes y pescados',
-    icon: Fish,
-    hash: '/recetas/carnes',
-  }
-]
+		name: "Vegetariano",
+		icon: LeafyGreen,
+		hash: "/recetas/vegetariano",
+	},
+	{
+		name: "Vegano",
+		icon: Carrot,
+		hash: "/recetas/vegano",
+	},
+	{
+		name: "Ensaladas",
+		icon: Apple,
+		hash: "/recetas/ensaladas",
+	},
+	{
+		name: "Postres",
+		icon: Dessert,
+		hash: "/recetas/postres",
+	},
+	{
+		name: "Carnes y pescados",
+		icon: Fish,
+		hash: "/recetas/carnes",
+	},
+];
