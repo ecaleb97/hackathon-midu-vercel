@@ -15,6 +15,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
 import ReactMarkdown from "react-markdown";
+import { CircleCheck } from "lucide-react";
 
 interface FormRecipeGeneratorProps {
 	type: "vegan" | "vegetarian" | "salad" | "dessert" | "meat";
@@ -30,7 +31,9 @@ export function FormRecipeGenerator({
 		useChat({
 			api: `/api/recipe/${type}`,
 			onFinish: () => {
-				toast.success("Receta generada con éxito");
+				toast.success("Receta generada con éxito", {
+					icon: <CircleCheck className="bg-[#FF9737] text-white size-5 rounded-full" />,
+				});
 			},
 			onError: () => {
 				toast.error("Error al generar la receta");
