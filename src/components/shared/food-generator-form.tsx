@@ -32,7 +32,9 @@ export function FormRecipeGenerator({
 			api: `/api/recipe/${type}`,
 			onFinish: () => {
 				toast.success("Receta generada con éxito", {
-					icon: <CircleCheck className="bg-[#FF9737] text-white size-5 rounded-full" />,
+					icon: (
+						<CircleCheck className="bg-[#FF9737] text-white size-5 rounded-full" />
+					),
 				});
 			},
 			onError: () => {
@@ -61,6 +63,7 @@ export function FormRecipeGenerator({
 										placeholder={placeholder}
 										value={input}
 										onChange={handleInputChange}
+										disabled={isLoading}
 									/>
 								</FormControl>
 								<FormMessage />
