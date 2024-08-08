@@ -25,13 +25,12 @@ export function FormRecipeGenerator({
 	type,
 	placeholder,
 }: FormRecipeGeneratorProps) {
-	const router = useRouter();
+	// const router = useRouter();
 	const { handleInputChange, handleSubmit, isLoading, error, messages, input } =
 		useChat({
 			api: `/api/recipe/${type}`,
 			onFinish: () => {
 				toast.success("Receta generada con éxito");
-				router.push("/recetas");
 			},
 			onError: () => {
 				toast.error("Error al generar la receta");
