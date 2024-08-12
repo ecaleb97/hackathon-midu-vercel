@@ -1,10 +1,15 @@
-"use client";
-
 import { Path } from "@/components/breadcrumb/path";
 import { CarouselImages } from "@/components/shared/carousel-images";
 import { DescriptionFoodGenerator } from "@/components/shared/description-food-generator";
 import { FormRecipeGenerator } from "@/components/shared/food-generator-form";
 import { veganImages } from "@/lib/constants";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Vegano",
+	description:
+		"Disfruta de las mejores recetas veganas para mantener una dieta equilibrada",
+};
 
 const placeholder =
 	"Hoy me gustaría comer una hamburguesa vegana, pero no se me ocurre ninguna receta, ¿me puedes ayudar?";

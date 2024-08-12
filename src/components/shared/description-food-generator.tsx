@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { experimental_useObject as useObject } from "ai/react";
 import { notificationSchema } from "@/app/api/recipe/description/schema";

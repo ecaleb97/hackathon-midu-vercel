@@ -1,5 +1,3 @@
-"use client";
-
 import { Path } from "@/components/breadcrumb/path";
 import { CarouselImages } from "@/components/shared/carousel-images";
 import { Button } from "@/components/ui/button";
@@ -11,6 +9,12 @@ import ensaladaPasta from "@/assets/images/ensaladaPasta.webp";
 import postre from "@/assets/images/postre.webp";
 import asadoArgentino from "@/assets/images/asadoArgentino.webp";
 import salmon from "@/assets/images/salmon.webp";
+import { Metadata } from "next";
+
+// export const metadata: Metadata = {
+// 	title: "Explorar",
+// 	description: "Explora los diferentes tipos de comida",
+// };
 
 const items = [
 	{

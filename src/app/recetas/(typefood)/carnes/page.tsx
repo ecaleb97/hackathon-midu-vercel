@@ -1,10 +1,14 @@
-"use client";
-
 import { Path } from "@/components/breadcrumb/path";
 import { meatImages } from "@/lib/constants";
 import { CarouselImages } from "@/components/shared/carousel-images";
 import { DescriptionFoodGenerator } from "@/components/shared/description-food-generator";
 import { FormRecipeGenerator } from "@/components/shared/food-generator-form";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Carnes y pescados",
+	description: "Disfruta de los mejores platos con carnes y pescados",
+};
 
 const placeholder =
 	"Hoy tengo una reunión con amigos y me gustaría preparar un asado argentino 🇦🇷 ¿me puedes ayudar?";

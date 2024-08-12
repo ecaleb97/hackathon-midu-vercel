@@ -1,10 +1,14 @@
-"use client";
-
 import { Path } from "@/components/breadcrumb/path";
 import { CarouselImages } from "@/components/shared/carousel-images";
 import { DescriptionFoodGenerator } from "@/components/shared/description-food-generator";
 import { FormRecipeGenerator } from "@/components/shared/food-generator-form";
 import { saladImages } from "@/lib/constants";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Ensaladas",
+	description: "Disfruta de las mejores ensaladas",
+};
 
 const placeholder =
 	"Me puedes dar una receta de ensalada rica en carbohidratos y proteínas para prepararme para una Marathon de 42Km?";
